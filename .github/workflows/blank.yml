@@ -33,8 +33,9 @@ jobs:
             "scope"         = "webApi"
         };
         $AccessToken = ((Invoke-WebRequest -Uri "https://$IdHostName/connect/token" -Method Post -Body $TokenRequestBody).Content | ConvertFrom-Json).access_token;
-            
+        Write-Output $RespositoryName;
         $ArtifactOutputDir = "D:\a\" + $RespositoryName + "\" + $RespositoryName;
+        Write-Output $ArtifactOutputDir;
         $ApiHostName = $env:ApiHost;
         $BaseUrl = "https://$env:ApiHostName/api/v1/";
         $AgentHostname = $env:AgentHostName;
