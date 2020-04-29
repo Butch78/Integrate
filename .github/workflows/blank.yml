@@ -13,10 +13,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Import Tenant
       env: 
-        ClientId: YOUR_CLIENT_ID
-        IdHostName: YOUR_ID_HOSTNAME
-        ApiHostName: YOUR_API_HOSTNAME
-        AgentHostName: YOUR_AGENTHOSTNAME
+        ClientId: 601b14d9-d1e8-4e74-8440-36e1e5a5ac84
+        IdHostName: datagovernor-dev-id.azurewebsites.net
+        ApiHostName: datagovernor-dev-api.azurewebsites.net
+        AgentHostName: PerDev-DG21.bizdata.local
       shell: pwsh
       run: |
         try {
