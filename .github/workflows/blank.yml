@@ -24,8 +24,8 @@ jobs:
         Add-Type -AssemblyName System.IO.Compression.FileSystem
         $ClientId = $env:ClientId;
         $IdHostName= $env:IdHostName;
-        Write-Output ${{github.repository}};
-        $RespositoryName = ${{github.repository}} -replace ${{github.repository_owner}} + "/",""; 
+        $fullRepo = ${{github.repository}};
+        $RespositoryName = $fullRepo -replace ${{github.repository_owner}} + "/",""; 
         Write-Output  $RespositoryName 
         $TokenRequestBody = @{
             "grant_type"    = "client_credentials";
