@@ -25,7 +25,8 @@ jobs:
         $ClientId = $env:ClientId;
         $IdHostName= $env:IdHostName;
         $fullRepo = ${{github.repository}};
-        $RespositoryName = $fullRepo -replace ${{github.repository_owner}} + "/",""; 
+        $owner = ${{github.repository_owner}} + "/"
+        $RespositoryName = $fullRepo -replace $owner,""; 
         Write-Output  $RespositoryName 
         $TokenRequestBody = @{
             "grant_type"    = "client_credentials";
