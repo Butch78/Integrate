@@ -33,6 +33,7 @@ jobs:
             "scope"         = "webApi"
         };
         $AccessToken = ((Invoke-WebRequest -Uri "https://$IdHostName/connect/token" -Method Post -Body $TokenRequestBody).Content | ConvertFrom-Json).access_token;
+        $fullRepo = $fullRepo -replace "/", "\"
         $ArtifactOutputDir = "D:\a\" + $fullRepo
         Write-Output $ArtifactOutputDir;
         $ApiHostName = $env:ApiHost;
