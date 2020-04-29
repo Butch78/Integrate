@@ -24,8 +24,6 @@ jobs:
         Add-Type -AssemblyName System.IO.Compression.FileSystem
         $ClientId = $env:ClientId;
         $IdHostName= $env:IdHostName;
-        $fullRepo = $env:GITHUB_REPOSITORY;
-        Write-Output  $RespositoryName 
         $TokenRequestBody = @{
             "grant_type"    = "client_credentials";
             "client_id"     = $ClientId;
@@ -33,9 +31,7 @@ jobs:
             "scope"         = "webApi"
         };
         $AccessToken = ((Invoke-WebRequest -Uri "https://$IdHostName/connect/token" -Method Post -Body $TokenRequestBody).Content | ConvertFrom-Json).access_token;
-        $fullRepo = $fullRepo -replace "/", "\"
-        $ArtifactOutputDir = "D:\a\" + $fullRepo
-        Write-Output $ArtifactOutputDir;
+        $ArtifactOutputDir = "D:\a\Integrate"
         $ApiHostName = $env:ApiHost;
         $BaseUrl = "https://$env:ApiHostName/api/v1/";
         $AgentHostname = $env:AgentHostName;
